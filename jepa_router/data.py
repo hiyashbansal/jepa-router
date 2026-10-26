@@ -47,13 +47,14 @@ def load_routerbench(path, tasks=("grade-school-math",), models=None, max_n=None
 
     Assumed columns (from the RouterBench repo; verify on first run with --inspect):
         prompt, eval_name, <model>, <model>|total_cost, <model>|model_response
-    `tasks` filters eval_name (math = "grade-school-math" i.e. GSM8K). Pass None for all.
+    `tasks` filters eval_name by prefix (math = "grade-school-math" i.e. GSM8K; "mmlu" = all
+    mmlu-* subjects). Pass None for all.
     """
     import pandas as pd
 
     df = pd.read_pickle(path)
     if tasks is not None:
-        df = df[df["eval_name"].isin(tasks)]
+        df = df[df["eval_name"].str.startswith(tuple(tasks))]
     all_models = [c for c in df.columns if f"{c}|total_cost" in df.columns]
     models = models or all_models
     if max_n and len(df) > max_n:
@@ -125,12 +126,12 @@ def make_synthetic(n=4000, seed=0):
 
 
 def split(data: RouteData, test_frac=0.2, seed=0, holdout_task=None):
-    """Random split, or (holdout_task=...) leave one task out entirely: an OOD test."""
+    """Random split, or (holdout_task=...) leave one task (prefix, e.g. "mmlu") out entirely: an OOD test."""
     rng = np.random.default_rng(seed)
     n = len(data)
     if holdout_task is not None:
-        te = np.where(data.task == holdout_task)[0]
-        tr = np.where(data.task != holdout_task)[0]
+        out = np.char.startswith(data.task.astype(str), holdout_task)
+        te, tr = np.where(out)[0], np.where(~out)[0]
         return data.subset(tr), data.subset(te)
     perm = rng.permutation(n)
     k = int(n * (1 - test_frac))

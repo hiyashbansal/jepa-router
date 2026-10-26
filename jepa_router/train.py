@@ -10,6 +10,7 @@ Compared routers (all see the same frozen query embedding, same head size):
   jepa-joint   : JEPA latent-prediction loss + BCE head, trained together
   jepa-2stage  : pretrain with JEPA loss only, freeze, then fit a linear head
   oracle       : upper bound (cheapest model that is correct)
+  routellm-bert: (--routellm) RouteLLM's released BERT router, strong = best model, weak = cheapest
 """
 from __future__ import annotations
 import argparse, json, os
@@ -27,6 +28,27 @@ def target_view_index(score, cost):
     """Which model's response is the JEPA target for each query: best score, ties -> cheapest."""
     key = score * 1e6 - cost / (cost.max() + 1e-12)
     return key.argmax(1)
+
+
+def routellm_curve(prompts, ckpt, score, cost, strong, weak):
+    """RouteLLM BERTRouter (github.com/lm-sys/RouteLLM): P(strong wins) = 1 - softmax[-2:].sum().
+    Send to the strong model iff it beats a threshold; sweep thresholds over its quantiles."""
+    from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+    dev = "cuda" if torch.cuda.is_available() else "cpu"
+    tok = AutoTokenizer.from_pretrained(ckpt)
+    m = AutoModelForSequenceClassification.from_pretrained(ckpt).to(dev).eval()
+    w = []
+    with torch.no_grad():
+        for i in range(0, len(prompts), 32):
+            b = tok(prompts[i : i + 32], padding=True, truncation=True, max_length=512, return_tensors="pt").to(dev)
+            w.append(1 - torch.softmax(m(**b).logits, -1)[:, -2:].sum(-1).cpu().numpy())
+    w, idx = np.concatenate(w), np.arange(len(prompts))
+    pts = []
+    for t in np.append(np.quantile(w, np.linspace(0, 1, 41)), np.inf):
+        ch = np.where(w >= t, strong, weak)
+        pts.append((cost[idx, ch].mean(), score[idx, ch].mean()))
+    return np.array(pts)
 
 
 def build_tensors(train, test, embedder_spec):
@@ -103,6 +125,7 @@ def main():
     ap.add_argument("--seeds", type=int, default=3)
     ap.add_argument("--train_frac", type=float, default=1.0, help="per-seed random subset of train (data-scarcity curve)")
     ap.add_argument("--out", default="results")
+    ap.add_argument("--routellm", default=None, help="HF checkpoint, e.g. routellm/bert_gpt4_augmented")
     ap.add_argument("--inspect", action="store_true")
     a = ap.parse_args()
 
@@ -124,6 +147,10 @@ def main():
            "oracle": {"cost": float(oracle[0]), "quality": float(oracle[1])},
            "best-single": {"model": data.models[best_m], "cost": float(single[best_m][0]), "quality": float(best_q)}}
     curves = {}
+    if a.routellm:
+        curve = routellm_curve(te.prompts, a.routellm, te.score, te.cost, best_m, int(np.argmin(te.cost.mean(0))))
+        curves["routellm-bert"] = curve.tolist()
+        res["routellm-bert"] = {"auc": auc_on_grid(curve, c_lo, c_hi), "cost@95%": float(cost_at_frac(curve, best_q))}
 
     for name in ["raw-head", "jepa-joint", "jepa-2stage"]:
         aucs, c95 = [], []
@@ -142,7 +169,8 @@ def main():
             curves[f"{name}_s{s}"] = curve.tolist()
             aucs.append(auc_on_grid(curve, c_lo, c_hi)); c95.append(cost_at_frac(curve, best_q))
         res[name] = {"auc_mean": float(np.mean(aucs)), "auc_std": float(np.std(aucs)), "aucs": aucs,
-                     "cost@95%_mean": float(np.nanmean(c95))}
+                     "cost@95%_mean": float(np.nanmean(c95)),  # only over seeds that reach 95%:
+                     "cost@95%_reached": f"{int(np.sum(~np.isnan(c95)))}/{a.seeds}"}
 
     json.dump({"results": res, "curves": curves}, open(os.path.join(a.out, "results.json"), "w"), indent=1)
     print("\n=== results (held-out queries) ===")
