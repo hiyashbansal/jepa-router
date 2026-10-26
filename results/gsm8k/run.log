@@ -1,0 +1,67 @@
+/Users/yash/Downloads/jepa-router/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+7450 queries, models=['WizardLM/WizardLM-13B-V1.2', 'claude-instant-v1', 'claude-v1', 'claude-v2', 'gpt-3.5-turbo-1106', 'gpt-4-1106-preview', 'meta/code-llama-instruct-34b-chat', 'meta/llama-2-70b-chat', 'mistralai/mistral-7b-chat', 'mistralai/mixtral-8x7b-chat', 'zero-one-ai/Yi-34B-Chat'], mean score per model=[0.506, 0.627, 0.651, 0.663, 0.605, 0.659, 0.457, 0.523, 0.412, 0.519, 0.548]
+
+
+
+  [raw] ep   0 bce=0.6748
+  [raw] ep  12 bce=0.6721
+  [raw] ep  24 bce=0.6722
+  [raw] ep  36 bce=0.6721
+  [raw] ep  48 bce=0.6720
+  [raw] ep  59 bce=0.6721
+  [raw] ep   0 bce=0.6754
+  [raw] ep  12 bce=0.6722
+  [raw] ep  24 bce=0.6721
+  [raw] ep  36 bce=0.6721
+  [raw] ep  48 bce=0.6721
+  [raw] ep  59 bce=0.6721
+  [raw] ep   0 bce=0.6761
+  [raw] ep  12 bce=0.6721
+  [raw] ep  24 bce=0.6721
+  [raw] ep  36 bce=0.6721
+  [raw] ep  48 bce=0.6721
+  [raw] ep  59 bce=0.6720
+  [joint] ep   0 jepa=0.1178 bce=0.6817 var=0.9900
+  [joint] ep  12 jepa=0.0089 bce=0.6721 var=0.9900
+  [joint] ep  24 jepa=0.0088 bce=0.6721 var=0.9900
+  [joint] ep  36 jepa=0.0089 bce=0.6721 var=0.9900
+  [joint] ep  48 jepa=0.0090 bce=0.6721 var=0.9900
+  [joint] ep  59 jepa=0.0092 bce=0.6721 var=0.9900
+  [joint] ep   0 jepa=0.1522 bce=0.6805 var=0.9900
+  [joint] ep  12 jepa=0.0056 bce=0.6721 var=0.9900
+  [joint] ep  24 jepa=0.0061 bce=0.6721 var=0.9900
+  [joint] ep  36 jepa=0.0064 bce=0.6721 var=0.9900
+  [joint] ep  48 jepa=0.0067 bce=0.6721 var=0.9900
+  [joint] ep  59 jepa=0.0068 bce=0.6721 var=0.9900
+  [joint] ep   0 jepa=0.2085 bce=0.6786 var=0.9900
+  [joint] ep  12 jepa=0.0051 bce=0.6721 var=0.9900
+  [joint] ep  24 jepa=0.0057 bce=0.6721 var=0.9900
+  [joint] ep  36 jepa=0.0064 bce=0.6721 var=0.9900
+  [joint] ep  48 jepa=0.0070 bce=0.6721 var=0.9900
+  [joint] ep  59 jepa=0.0075 bce=0.6720 var=0.9900
+  [jepa_only] ep   0 jepa=0.1179 var=0.9900
+  [jepa_only] ep  12 jepa=0.0092 var=0.9900
+  [jepa_only] ep  24 jepa=0.0074 var=0.9900
+  [jepa_only] ep  36 jepa=0.0066 var=0.9900
+  [jepa_only] ep  48 jepa=0.0059 var=0.9900
+  [jepa_only] ep  59 jepa=0.0056 var=0.9900
+  [jepa_only] ep   0 jepa=0.1526 var=0.9900
+  [jepa_only] ep  12 jepa=0.0053 var=0.9900
+  [jepa_only] ep  24 jepa=0.0048 var=0.9900
+  [jepa_only] ep  36 jepa=0.0043 var=0.9900
+  [jepa_only] ep  48 jepa=0.0040 var=0.9900
+  [jepa_only] ep  59 jepa=0.0038 var=0.9900
+  [jepa_only] ep   0 jepa=0.2089 var=0.9900
+  [jepa_only] ep  12 jepa=0.0045 var=0.9900
+  [jepa_only] ep  24 jepa=0.0041 var=0.9900
+  [jepa_only] ep  36 jepa=0.0039 var=0.9900
+  [jepa_only] ep  48 jepa=0.0037 var=0.9900
+  [jepa_only] ep  59 jepa=0.0036 var=0.9900
+
+=== results (held-out queries) ===
+random-mix   {"auc": 0.5378, "cost@95%": 0.0077}
+oracle       {"cost": 0.0004, "quality": 0.6824}
+best-single  {"model": "gpt-4-1106-preview", "cost": 0.0085, "quality": 0.6609}
+raw-head     {"auc_mean": 0.6417, "auc_std": 0.0004, "cost@95%_mean": 0.0017}
+jepa-joint   {"auc_mean": 0.6416, "auc_std": 0.0001, "cost@95%_mean": 0.0017}
+jepa-2stage  {"auc_mean": 0.6415, "auc_std": 0.0001, "cost@95%_mean": 0.002}

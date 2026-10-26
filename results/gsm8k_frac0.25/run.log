@@ -1,0 +1,193 @@
+/Users/yash/Downloads/jepa-router/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+7450 queries, models=['WizardLM/WizardLM-13B-V1.2', 'claude-instant-v1', 'claude-v1', 'claude-v2', 'gpt-3.5-turbo-1106', 'gpt-4-1106-preview', 'meta/code-llama-instruct-34b-chat', 'meta/llama-2-70b-chat', 'mistralai/mistral-7b-chat', 'mistralai/mixtral-8x7b-chat', 'zero-one-ai/Yi-34B-Chat'], mean score per model=[0.506, 0.627, 0.651, 0.663, 0.605, 0.659, 0.457, 0.523, 0.412, 0.519, 0.548]
+
+
+
+  [raw] ep   0 bce=0.6809
+  [raw] ep  12 bce=0.6726
+  [raw] ep  24 bce=0.6726
+  [raw] ep  36 bce=0.6724
+  [raw] ep  48 bce=0.6725
+  [raw] ep  59 bce=0.6724
+  [raw] ep   0 bce=0.6847
+  [raw] ep  12 bce=0.6722
+  [raw] ep  24 bce=0.6722
+  [raw] ep  36 bce=0.6723
+  [raw] ep  48 bce=0.6723
+  [raw] ep  59 bce=0.6722
+  [raw] ep   0 bce=0.6876
+  [raw] ep  12 bce=0.6725
+  [raw] ep  24 bce=0.6725
+  [raw] ep  36 bce=0.6725
+  [raw] ep  48 bce=0.6724
+  [raw] ep  59 bce=0.6725
+  [raw] ep   0 bce=0.6829
+  [raw] ep  12 bce=0.6719
+  [raw] ep  24 bce=0.6719
+  [raw] ep  36 bce=0.6722
+  [raw] ep  48 bce=0.6720
+  [raw] ep  59 bce=0.6719
+  [raw] ep   0 bce=0.6831
+  [raw] ep  12 bce=0.6711
+  [raw] ep  24 bce=0.6712
+  [raw] ep  36 bce=0.6710
+  [raw] ep  48 bce=0.6711
+  [raw] ep  59 bce=0.6711
+  [raw] ep   0 bce=0.6838
+  [raw] ep  12 bce=0.6724
+  [raw] ep  24 bce=0.6724
+  [raw] ep  36 bce=0.6723
+  [raw] ep  48 bce=0.6725
+  [raw] ep  59 bce=0.6723
+  [raw] ep   0 bce=0.6818
+  [raw] ep  12 bce=0.6722
+  [raw] ep  24 bce=0.6721
+  [raw] ep  36 bce=0.6720
+  [raw] ep  48 bce=0.6720
+  [raw] ep  59 bce=0.6719
+  [raw] ep   0 bce=0.6817
+  [raw] ep  12 bce=0.6724
+  [raw] ep  24 bce=0.6724
+  [raw] ep  36 bce=0.6725
+  [raw] ep  48 bce=0.6724
+  [raw] ep  59 bce=0.6725
+  [raw] ep   0 bce=0.6824
+  [raw] ep  12 bce=0.6715
+  [raw] ep  24 bce=0.6715
+  [raw] ep  36 bce=0.6716
+  [raw] ep  48 bce=0.6715
+  [raw] ep  59 bce=0.6717
+  [raw] ep   0 bce=0.6822
+  [raw] ep  12 bce=0.6715
+  [raw] ep  24 bce=0.6714
+  [raw] ep  36 bce=0.6714
+  [raw] ep  48 bce=0.6714
+  [raw] ep  59 bce=0.6714
+  [joint] ep   0 jepa=0.6593 bce=0.6912 var=0.9900
+  [joint] ep  12 jepa=0.0078 bce=0.6724 var=0.9900
+  [joint] ep  24 jepa=0.0053 bce=0.6726 var=0.9900
+  [joint] ep  36 jepa=0.0050 bce=0.6724 var=0.9900
+  [joint] ep  48 jepa=0.0050 bce=0.6724 var=0.9900
+  [joint] ep  59 jepa=0.0050 bce=0.6724 var=0.9900
+  [joint] ep   0 jepa=0.5697 bce=0.6882 var=0.9900
+  [joint] ep  12 jepa=0.0069 bce=0.6721 var=0.9900
+  [joint] ep  24 jepa=0.0050 bce=0.6721 var=0.9900
+  [joint] ep  36 jepa=0.0047 bce=0.6721 var=0.9900
+  [joint] ep  48 jepa=0.0047 bce=0.6721 var=0.9900
+  [joint] ep  59 jepa=0.0048 bce=0.6721 var=0.9900
+  [joint] ep   0 jepa=0.5611 bce=0.6930 var=0.9900
+  [joint] ep  12 jepa=0.0092 bce=0.6724 var=0.9900
+  [joint] ep  24 jepa=0.0066 bce=0.6725 var=0.9900
+  [joint] ep  36 jepa=0.0063 bce=0.6724 var=0.9900
+  [joint] ep  48 jepa=0.0061 bce=0.6724 var=0.9900
+  [joint] ep  59 jepa=0.0062 bce=0.6724 var=0.9900
+  [joint] ep   0 jepa=0.5964 bce=0.6873 var=0.9900
+  [joint] ep  12 jepa=0.0081 bce=0.6718 var=0.9900
+  [joint] ep  24 jepa=0.0055 bce=0.6718 var=0.9900
+  [joint] ep  36 jepa=0.0050 bce=0.6720 var=0.9900
+  [joint] ep  48 jepa=0.0050 bce=0.6720 var=0.9900
+  [joint] ep  59 jepa=0.0053 bce=0.6719 var=0.9900
+  [joint] ep   0 jepa=0.3558 bce=0.6922 var=0.9900
+  [joint] ep  12 jepa=0.0150 bce=0.6710 var=0.9900
+  [joint] ep  24 jepa=0.0114 bce=0.6710 var=0.9900
+  [joint] ep  36 jepa=0.0101 bce=0.6710 var=0.9900
+  [joint] ep  48 jepa=0.0095 bce=0.6710 var=0.9900
+  [joint] ep  59 jepa=0.0093 bce=0.6710 var=0.9900
+  [joint] ep   0 jepa=0.4427 bce=0.6912 var=0.9900
+  [joint] ep  12 jepa=0.0112 bce=0.6723 var=0.9900
+  [joint] ep  24 jepa=0.0088 bce=0.6723 var=0.9900
+  [joint] ep  36 jepa=0.0081 bce=0.6723 var=0.9900
+  [joint] ep  48 jepa=0.0080 bce=0.6723 var=0.9900
+  [joint] ep  59 jepa=0.0080 bce=0.6723 var=0.9900
+  [joint] ep   0 jepa=0.6226 bce=0.6917 var=0.9900
+  [joint] ep  12 jepa=0.0075 bce=0.6720 var=0.9900
+  [joint] ep  24 jepa=0.0054 bce=0.6720 var=0.9900
+  [joint] ep  36 jepa=0.0051 bce=0.6719 var=0.9900
+  [joint] ep  48 jepa=0.0051 bce=0.6719 var=0.9900
+  [joint] ep  59 jepa=0.0052 bce=0.6719 var=0.9900
+  [joint] ep   0 jepa=0.5607 bce=0.6869 var=0.9900
+  [joint] ep  12 jepa=0.0069 bce=0.6724 var=0.9900
+  [joint] ep  24 jepa=0.0048 bce=0.6724 var=0.9900
+  [joint] ep  36 jepa=0.0043 bce=0.6724 var=0.9900
+  [joint] ep  48 jepa=0.0043 bce=0.6724 var=0.9900
+  [joint] ep  59 jepa=0.0044 bce=0.6724 var=0.9900
+  [joint] ep   0 jepa=0.6103 bce=0.6898 var=0.9900
+  [joint] ep  12 jepa=0.0080 bce=0.6715 var=0.9900
+  [joint] ep  24 jepa=0.0058 bce=0.6715 var=0.9900
+  [joint] ep  36 jepa=0.0056 bce=0.6715 var=0.9900
+  [joint] ep  48 jepa=0.0055 bce=0.6715 var=0.9900
+  [joint] ep  59 jepa=0.0057 bce=0.6715 var=0.9900
+  [joint] ep   0 jepa=0.4655 bce=0.6940 var=0.9900
+  [joint] ep  12 jepa=0.0085 bce=0.6714 var=0.9900
+  [joint] ep  24 jepa=0.0062 bce=0.6714 var=0.9900
+  [joint] ep  36 jepa=0.0059 bce=0.6714 var=0.9900
+  [joint] ep  48 jepa=0.0059 bce=0.6714 var=0.9900
+  [joint] ep  59 jepa=0.0059 bce=0.6714 var=0.9900
+  [jepa_only] ep   0 jepa=0.6595 var=0.9900
+  [jepa_only] ep  12 jepa=0.0085 var=0.9900
+  [jepa_only] ep  24 jepa=0.0055 var=0.9900
+  [jepa_only] ep  36 jepa=0.0050 var=0.9900
+  [jepa_only] ep  48 jepa=0.0048 var=0.9900
+  [jepa_only] ep  59 jepa=0.0047 var=0.9900
+  [jepa_only] ep   0 jepa=0.5697 var=0.9900
+  [jepa_only] ep  12 jepa=0.0075 var=0.9900
+  [jepa_only] ep  24 jepa=0.0054 var=0.9900
+  [jepa_only] ep  36 jepa=0.0049 var=0.9900
+  [jepa_only] ep  48 jepa=0.0047 var=0.9900
+  [jepa_only] ep  59 jepa=0.0046 var=0.9900
+  [jepa_only] ep   0 jepa=0.5613 var=0.9900
+  [jepa_only] ep  12 jepa=0.0091 var=0.9900
+  [jepa_only] ep  24 jepa=0.0064 var=0.9900
+  [jepa_only] ep  36 jepa=0.0059 var=0.9900
+  [jepa_only] ep  48 jepa=0.0055 var=0.9900
+  [jepa_only] ep  59 jepa=0.0054 var=0.9900
+  [jepa_only] ep   0 jepa=0.5965 var=0.9900
+  [jepa_only] ep  12 jepa=0.0087 var=0.9900
+  [jepa_only] ep  24 jepa=0.0057 var=0.9900
+  [jepa_only] ep  36 jepa=0.0050 var=0.9900
+  [jepa_only] ep  48 jepa=0.0047 var=0.9900
+  [jepa_only] ep  59 jepa=0.0047 var=0.9900
+  [jepa_only] ep   0 jepa=0.3559 var=0.9900
+  [jepa_only] ep  12 jepa=0.0164 var=0.9900
+  [jepa_only] ep  24 jepa=0.0127 var=0.9900
+  [jepa_only] ep  36 jepa=0.0106 var=0.9900
+  [jepa_only] ep  48 jepa=0.0094 var=0.9900
+  [jepa_only] ep  59 jepa=0.0088 var=0.9900
+  [jepa_only] ep   0 jepa=0.4427 var=0.9900
+  [jepa_only] ep  12 jepa=0.0123 var=0.9900
+  [jepa_only] ep  24 jepa=0.0093 var=0.9900
+  [jepa_only] ep  36 jepa=0.0084 var=0.9900
+  [jepa_only] ep  48 jepa=0.0080 var=0.9900
+  [jepa_only] ep  59 jepa=0.0076 var=0.9900
+  [jepa_only] ep   0 jepa=0.6230 var=0.9900
+  [jepa_only] ep  12 jepa=0.0074 var=0.9900
+  [jepa_only] ep  24 jepa=0.0051 var=0.9900
+  [jepa_only] ep  36 jepa=0.0047 var=0.9900
+  [jepa_only] ep  48 jepa=0.0045 var=0.9900
+  [jepa_only] ep  59 jepa=0.0045 var=0.9900
+  [jepa_only] ep   0 jepa=0.5602 var=0.9900
+  [jepa_only] ep  12 jepa=0.0068 var=0.9900
+  [jepa_only] ep  24 jepa=0.0044 var=0.9900
+  [jepa_only] ep  36 jepa=0.0038 var=0.9900
+  [jepa_only] ep  48 jepa=0.0036 var=0.9900
+  [jepa_only] ep  59 jepa=0.0036 var=0.9900
+  [jepa_only] ep   0 jepa=0.6096 var=0.9900
+  [jepa_only] ep  12 jepa=0.0079 var=0.9900
+  [jepa_only] ep  24 jepa=0.0054 var=0.9900
+  [jepa_only] ep  36 jepa=0.0050 var=0.9900
+  [jepa_only] ep  48 jepa=0.0047 var=0.9900
+  [jepa_only] ep  59 jepa=0.0047 var=0.9900
+  [jepa_only] ep   0 jepa=0.4655 var=0.9900
+  [jepa_only] ep  12 jepa=0.0098 var=0.9900
+  [jepa_only] ep  24 jepa=0.0071 var=0.9900
+  [jepa_only] ep  36 jepa=0.0065 var=0.9900
+  [jepa_only] ep  48 jepa=0.0063 var=0.9900
+  [jepa_only] ep  59 jepa=0.0061 var=0.9900
+
+=== results (held-out queries) ===
+random-mix   {"auc": 0.5378, "cost@95%": 0.0077}
+oracle       {"cost": 0.0004, "quality": 0.6824}
+best-single  {"model": "gpt-4-1106-preview", "cost": 0.0085, "quality": 0.6609}
+raw-head     {"auc_mean": 0.6415, "auc_std": 0.0006, "aucs": [0.6410161634837456, 0.6422433127557362, 0.6405935070497867, 0.6413925907536329, 0.6424057824595178, 0.6410694065616289, 0.6421662757175716, 0.6411832981457981, 0.6414918023462836, 0.6411492383018946], "cost@95%_mean": 0.0019}
+jepa-joint   {"auc_mean": 0.6415, "auc_std": 0.0005, "aucs": [0.6417949217352215, 0.6424291851906865, 0.6406593786171892, 0.6419387236222742, 0.6419194279044448, 0.6410930257914971, 0.6417572332893633, 0.6414821984700104, 0.6410914087889616, 0.6407852823453428], "cost@95%_mean": 0.0019}
+jepa-2stage  {"auc_mean": 0.6416, "auc_std": 0.0004, "aucs": [0.642063770871372, 0.6417636286300062, 0.64118130093261, 0.641583089070213, 0.6421659652935058, 0.640782165963783, 0.6414453297079638, 0.6416410868379, 0.6416564960729804, 0.6416314826357239], "cost@95%_mean": 0.0021}

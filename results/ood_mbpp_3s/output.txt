@@ -1,0 +1,8 @@
+# Colab, --tasks grade-school-math mbpp --holdout_task mbpp (3 seeds, before --train_frac/cost@95%_reached existed)
+=== results (held-out queries) ===
+random-mix   {"auc": 0.5152, "cost@95%": 0.0084}
+oracle       {"cost": 0.0005, "quality": 0.8665}
+best-single  {"model": "gpt-4-1106-preview", "cost": 0.0094, "quality": 0.6862}
+raw-head     {"auc_mean": 0.6477, "auc_std": 0.0071, "aucs": [0.6377656495467074, 0.6514268017806181, 0.6540246468016288], "cost@95%_mean": 0.0045}
+jepa-joint   {"auc_mean": 0.6415, "auc_std": 0.0173, "aucs": [0.646775532908505, 0.6596234830822427, 0.6181500695671618], "cost@95%_mean": 0.0003}
+jepa-2stage  {"auc_mean": 0.6289, "auc_std": 0.0362, "aucs": [0.6368236819277615, 0.6686438149187433, 0.5811509282459152], "cost@95%_mean": 0.0003}

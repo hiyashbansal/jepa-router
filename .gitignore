@@ -1,7 +1,6 @@
 __pycache__/
-results/
 *.pkl
 .venv/
 .DS_Store
 results_*.log
-results_next.zip
+*.zip
