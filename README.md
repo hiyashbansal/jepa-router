@@ -66,10 +66,26 @@ Data scarcity (`--train_frac`, 10 seeds, each seed a different training subset s
 Takeaways:
 - Learned routers match GPT-4 quality at ~1/5 of its cost, but **JEPA gives no gain over the plain head**, at full data or with as little as 5%.
 - GSM8K leaves little headroom: the oracle (0.682) is barely above GPT-4 (0.661), and even 5% of the data saturates every router. A task mix with more model disagreement is a better testbed.
-- GSM8K → MBPP leave-one-task-out: not yet run.
+
+## Results: leave-one-task-out (train GSM8K, test MBPP)
+`--tasks grade-school-math mbpp --holdout_task mbpp`, same setup, 3 seeds, 427 MBPP test queries (run on Colab).
+
+| Router | AUC | cost to 95% of best quality* |
+|---|---|---|
+| random-mix | 0.5152 | $0.0084 |
+| raw-head | **0.6477 ± 0.0071** | $0.0045 |
+| jepa-joint | 0.6415 ± 0.0173 | $0.0003 |
+| jepa-2stage | 0.6289 ± 0.0362 | $0.0003 |
+| best single (gpt-4-1106-preview) | — | $0.0094 (quality 0.686) |
+| oracle | — | $0.0005 (quality 0.867) |
+
+\*Mean over seeds that reach the target only (`nanmean`), so it is not comparable across rows; use AUC.
+
+- Out of distribution, **JEPA is slightly worse than the plain head and 2–5× less stable across seeds**. With 3 seeds the gap is within noise.
+- Unlike GSM8K, MBPP has real headroom (oracle 0.867 vs GPT-4 0.686), so it is the better place to test routing ideas.
 
 ## Next experiments
-1. GSM8K + MBPP + MMLU with leave-one-task-out (`--holdout_task`).
+1. More seeds (10) on the MBPP holdout; add MMLU to the task mix.
 2. Ablate the target view: best response vs per-model response vs problem solution text.
 3. Add latency to the cost term; add a fine-tuned (not frozen) encoder.
 4. Repeat the sample-efficiency curve on a harder task mix (on GSM8K it is flat, see above).
